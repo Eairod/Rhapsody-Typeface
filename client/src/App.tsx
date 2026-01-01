@@ -7,6 +7,8 @@ import Home from "@/pages/Home";
 import Missions from "@/pages/Missions";
 import Predictions from "@/pages/Predictions";
 import Partners from "@/pages/Partners";
+import Profile from "@/pages/Profile";
+import Shop from "@/pages/Shop";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/not-found";
 import { useStore } from "@/lib/store";
@@ -19,6 +21,8 @@ function AppRouter() {
         <Route path="/missions" component={Missions} />
         <Route path="/predictions" component={Predictions} />
         <Route path="/partners" component={Partners} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/shop" component={Shop} />
         <Route component={NotFound} />
       </Switch>
     </MobileLayout>
