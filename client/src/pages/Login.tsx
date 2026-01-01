@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import bgImage from "@assets/generated_images/dark_futuristic_geometric_background_with_yellow_accents.png";
+import logoFull from "@assets/LOGOTIPO_1767226191405.png";
 
 export default function Login() {
   const { login } = useStore();
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-background relative overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center bg-background relative overflow-hidden font-sans">
       {/* Background with overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
@@ -23,15 +24,12 @@ export default function Login() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-4"
+          className="space-y-6"
         >
-           <div className="w-20 h-20 rounded-2xl bg-primary flex items-center justify-center mx-auto shadow-[0_0_40px_rgba(255,182,0,0.4)] rotate-3">
-              <span className="font-heading font-bold text-4xl text-primary-foreground">R</span>
-           </div>
-           <div>
-             <h1 className="font-heading text-5xl font-bold tracking-tighter text-white">RHAPSODY</h1>
-             <p className="text-primary font-medium tracking-widest text-sm mt-2 uppercase">Gamification Protocol</p>
-           </div>
+           <img src={logoFull} alt="Rhapsody" className="h-16 w-auto mx-auto drop-shadow-[0_0_20px_rgba(255,182,0,0.3)]" />
+           <p className="text-primary font-black tracking-[0.3em] text-[10px] uppercase">
+             The Rewarding layer of the internet
+           </p>
         </motion.div>
 
         {/* Action Area */}
@@ -41,11 +39,11 @@ export default function Login() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="w-full space-y-4"
         >
-          <div className="space-y-3 w-full">
+          <div className="space-y-3 w-full px-4">
             <Button 
                 onClick={login}
                 size="lg" 
-                className="w-full h-14 bg-primary text-primary-foreground font-heading text-xl tracking-wide hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,182,0,0.2)]"
+                className="w-full h-14 bg-primary text-primary-foreground font-black text-lg tracking-wider hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,182,0,0.2)] rounded-none"
             >
                 ENTER HUB <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -53,15 +51,15 @@ export default function Login() {
             <Button 
                 variant="outline"
                 size="lg" 
-                className="w-full h-14 border-white/20 text-white hover:bg-white/10 hover:text-white font-heading text-lg tracking-wide"
+                className="w-full h-14 border-white/20 text-white hover:bg-white/10 hover:text-white font-black text-lg tracking-wider rounded-none"
             >
                 CONNECT WALLET
             </Button>
           </div>
           
-          <p className="text-xs text-white/40 mt-6">
-             By continuing you agree to the Terms of Service.
-             <br/>Protocol v0.1.0-alpha
+          <p className="text-[10px] text-white/40 mt-8 font-bold uppercase tracking-widest">
+             Transforming Communities into economy of participation
+             <br/><span className="mt-2 block opacity-50">Protocol v0.1.0-alpha</span>
           </p>
         </motion.div>
 

@@ -1,7 +1,8 @@
 import { Link, useLocation } from "wouter";
-import { Home, Target, TrendingUp, Users, User, Wallet } from "lucide-react";
+import { Home, Target, TrendingUp, Users, User } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import logoFull from "@assets/LOGOTIPO_1767226191405.png";
 
 export default function MobileLayout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -21,18 +22,15 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
         {/* Header */}
         <header className="h-16 border-b border-border/50 flex items-center justify-between px-4 sticky top-0 bg-background/80 backdrop-blur-md z-10">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-xl">
-              R
-            </div>
-            <span className="font-heading font-bold text-lg tracking-wider">RHAPSODY</span>
+            <img src={logoFull} alt="Rhapsody" className="h-6 w-auto" />
           </div>
           
-          <div className="flex items-center gap-3 text-xs font-medium">
-             <div className="flex flex-col items-end">
-                <span className="text-primary font-bold">{points} PTS</span>
-                <span className="text-muted-foreground">{xp} XP</span>
+          <div className="flex items-center gap-3">
+             <div className="flex flex-col items-end leading-none">
+                <span className="text-primary font-black text-xs">{points} PTS</span>
+                <span className="text-muted-foreground text-[10px] font-bold">{xp} XP</span>
              </div>
-             <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center border border-border">
+             <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center border border-border overflow-hidden">
                 <User className="w-4 h-4 text-muted-foreground" />
              </div>
           </div>
@@ -59,7 +57,7 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
                   )}>
                     <item.icon className={cn("w-6 h-6", isActive && "fill-current")} />
                   </div>
-                  <span className="text-[10px] font-medium tracking-wide">{item.label}</span>
+                  <span className="text-[10px] font-black tracking-wider uppercase">{item.label}</span>
                 </div>
               </Link>
             );
