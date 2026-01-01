@@ -2,27 +2,36 @@ import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import MobileLayout from "@/components/layout/MobileLayout";
+import Home from "@/pages/Home";
+import Missions from "@/pages/Missions";
+import Predictions from "@/pages/Predictions";
+import Partners from "@/pages/Partners";
+import Login from "@/pages/Login";
 import NotFound from "@/pages/not-found";
+import { useStore } from "@/lib/store";
 
-function Router() {
+function AppRouter() {
   return (
-    <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+    <MobileLayout>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/missions" component={Missions} />
+        <Route path="/predictions" component={Predictions} />
+        <Route path="/partners" component={Partners} />
+        <Route component={NotFound} />
+      </Switch>
+    </MobileLayout>
   );
 }
 
 function App() {
+  const { isAuthenticated } = useStore();
+
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
+        {isAuthenticated ? <AppRouter /> : <Login />}
         <Toaster />
-        <Router />
-      </TooltipProvider>
     </QueryClientProvider>
   );
 }
