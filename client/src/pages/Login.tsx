@@ -33,7 +33,7 @@ export default function Login() {
            <div className="space-y-2">
              <h1 className="font-heading text-4xl font-black tracking-tighter text-white uppercase italic">RHAPSODY HUB</h1>
              <p className="text-primary font-black tracking-[0.3em] text-[10px] uppercase">
-               The Rewarding layer of the internet
+               A camada de recompensa da internet
              </p>
            </div>
         </motion.div>
@@ -51,7 +51,7 @@ export default function Login() {
                 size="lg" 
                 className="w-full h-14 bg-primary text-primary-foreground font-black text-lg tracking-wider hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,182,0,0.2)] rounded-none"
             >
-                ENTER HUB <ArrowRight className="ml-2 w-5 h-5" />
+                ENTRAR NO HUB <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
             <Button 
@@ -59,13 +59,13 @@ export default function Login() {
                 size="lg" 
                 className="w-full h-14 border-white/20 text-white hover:bg-white/10 hover:text-white font-black text-lg tracking-wider rounded-none"
             >
-                CONNECT WALLET
+                CONECTAR CARTEIRA
             </Button>
           </div>
           
-          <p className="text-[10px] text-white/40 mt-8 font-bold uppercase tracking-widest">
-             Transforming Communities into economy of participation
-             <br/><span className="mt-2 block opacity-50">Protocol v0.1.0-alpha</span>
+          <p className="text-[10px] text-white/40 mt-8 font-bold uppercase tracking-widest px-8">
+             Transformando Comunidades em economia de participação
+             <br/><span className="mt-2 block opacity-50">Protocolo v0.1.0-alpha</span>
           </p>
         </motion.div>
 
