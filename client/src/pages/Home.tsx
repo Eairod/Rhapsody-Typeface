@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Flame, Trophy, ArrowRight, Gift } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import brandSymbol from "@assets/image_1767226457501.png";
 
 export default function Home() {
   const { streak, checkIn, points, missions } = useStore();
@@ -14,12 +15,17 @@ export default function Home() {
   return (
     <div className="p-4 space-y-6">
       
-      {/* Welcome Section */}
-      <section>
-        <h1 className="text-3xl font-heading font-bold mb-1">
-          GOOD MORNING, <span className="text-primary">PLAYER</span>
-        </h1>
-        <p className="text-muted-foreground text-sm">Ready to own the day?</p>
+      {/* Brand Hero Area */}
+      <section className="relative py-4">
+        <div className="flex items-center gap-4">
+           <img src={brandSymbol} alt="Rhapsody Symbol" className="w-16 h-16 drop-shadow-[0_0_15px_rgba(255,182,0,0.3)]" />
+           <div>
+             <h1 className="text-3xl font-black mb-0 leading-none tracking-tighter italic">
+               RHAPSODY<span className="text-primary text-2xl ml-1">HUB</span>
+             </h1>
+             <p className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase mt-1">Ready to own the day, player?</p>
+           </div>
+        </div>
       </section>
 
       {/* Daily Check-in */}
@@ -37,19 +43,19 @@ export default function Home() {
             <div className="relative z-10 flex flex-col gap-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-heading text-xl text-white">DAILY CHECK-IN</h3>
-                  <p className="text-neutral-400 text-sm">Keep your streak alive</p>
+                  <h3 className="font-bold text-xl text-white italic tracking-tighter">DAILY CHECK-IN</h3>
+                  <p className="text-neutral-400 text-[10px] font-bold uppercase tracking-widest">Keep your streak alive</p>
                 </div>
                 <div className="flex items-center gap-1.5 bg-background/50 backdrop-blur px-2.5 py-1 rounded-full border border-white/10">
                   <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
-                  <span className="font-bold text-white text-sm">{streak} Day Streak</span>
+                  <span className="font-black text-white text-[10px] uppercase">{streak} Day Streak</span>
                 </div>
               </div>
 
               <Button 
                 onClick={checkIn}
                 size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base h-12 shadow-[0_0_20px_rgba(255,182,0,0.3)] hover:shadow-[0_0_30px_rgba(255,182,0,0.5)] transition-shadow"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm h-12 shadow-[0_0_20px_rgba(255,182,0,0.3)] hover:shadow-[0_0_30px_rgba(255,182,0,0.5)] transition-shadow rounded-none"
               >
                 CHECK IN NOW (+50 XP)
               </Button>
@@ -64,8 +70,8 @@ export default function Home() {
            <div className="flex flex-col gap-2">
               <Gift className="w-6 h-6 text-primary" />
               <div>
-                <span className="block font-bold text-lg">2</span>
-                <span className="text-xs text-muted-foreground font-medium uppercase">Rewards Pending</span>
+                <span className="block font-black text-xl leading-none">2</span>
+                <span className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">Rewards Pending</span>
               </div>
            </div>
         </Card>
@@ -73,8 +79,8 @@ export default function Home() {
            <div className="flex flex-col gap-2">
               <Trophy className="w-6 h-6 text-primary" />
               <div>
-                <span className="block font-bold text-lg">#{42}</span>
-                <span className="text-xs text-muted-foreground font-medium uppercase">Global Rank</span>
+                <span className="block font-black text-xl leading-none">#{42}</span>
+                <span className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">Global Rank</span>
               </div>
            </div>
         </Card>
@@ -83,8 +89,8 @@ export default function Home() {
       {/* Active Missions */}
       <section className="space-y-4">
         <div className="flex justify-between items-end">
-          <h2 className="font-heading text-lg font-semibold tracking-wide">TODAY'S MISSIONS</h2>
-          <Link href="/missions" className="text-xs text-primary hover:text-primary/80 font-medium flex items-center gap-1">
+          <h2 className="text-lg font-black tracking-tighter italic">ACTIVE MISSIONS</h2>
+          <Link href="/missions" className="text-[10px] text-primary hover:text-primary/80 font-black tracking-widest flex items-center gap-1">
             VIEW ALL <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -97,14 +103,14 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className="p-4 bg-card border-border/50 flex items-center justify-between group hover:border-primary/30 transition-colors cursor-pointer">
+              <Card className="p-4 bg-card border-border/50 flex items-center justify-between group hover:border-primary/30 transition-colors cursor-pointer rounded-none">
                 <div className="flex items-center gap-3">
                    <div className="w-10 h-10 rounded-lg bg-neutral-800 flex items-center justify-center text-xl">
                       {mission.partner === 'MusicPlayce' ? '🎵' : '⚡'}
                    </div>
                    <div>
-                     <h4 className="font-bold text-sm leading-tight group-hover:text-primary transition-colors">{mission.title}</h4>
-                     <span className="text-xs text-muted-foreground">{mission.reward} {mission.type.toUpperCase()} • {mission.partner}</span>
+                     <h4 className="font-black text-[12px] leading-tight group-hover:text-primary transition-colors tracking-tight uppercase">{mission.title}</h4>
+                     <span className="text-[10px] text-muted-foreground font-bold tracking-widest uppercase">{mission.reward} {mission.type.toUpperCase()} • {mission.partner}</span>
                    </div>
                 </div>
                 <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
