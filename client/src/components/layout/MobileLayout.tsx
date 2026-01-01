@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Home, Target, TrendingUp, Users, User } from "lucide-react";
+import { Home, Target, TrendingUp, Users, ShoppingBag, User } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import logoFull from "@assets/LOGOTIPO_1767226191405.png";
@@ -12,7 +12,8 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
     { icon: Home, label: "Início", path: "/" },
     { icon: Target, label: "Missões", path: "/missions" },
     { icon: TrendingUp, label: "Previsões", path: "/predictions" },
-    { icon: Users, label: "Parceiros", path: "/partners" },
+    { icon: ShoppingBag, label: "Loja", path: "/shop" },
+    { icon: User, label: "Perfil", path: "/profile" },
   ];
 
   return (
@@ -22,7 +23,9 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
         {/* Header */}
         <header className="h-16 border-b border-border/50 flex items-center justify-between px-4 sticky top-0 bg-background/80 backdrop-blur-md z-10">
           <div className="flex items-center gap-2">
-            <img src={logoFull} alt="Rhapsody" className="h-6 w-auto" />
+            <Link href="/">
+              <img src={logoFull} alt="Rhapsody" className="h-6 w-auto cursor-pointer" />
+            </Link>
           </div>
           
           <div className="flex items-center gap-3">
@@ -30,9 +33,14 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
                 <span className="text-primary font-black text-xs">{points} PTS</span>
                 <span className="text-muted-foreground text-[10px] font-bold">{xp} XP</span>
              </div>
-             <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center border border-border overflow-hidden">
-                <User className="w-4 h-4 text-muted-foreground" />
-             </div>
+             <Link href="/profile">
+               <div className={cn(
+                 "w-8 h-8 rounded-full bg-muted flex items-center justify-center border border-border overflow-hidden cursor-pointer",
+                 location === "/profile" && "border-primary"
+               )}>
+                  <User className={cn("w-4 h-4 text-muted-foreground", location === "/profile" && "text-primary")} />
+               </div>
+             </Link>
           </div>
         </header>
 
@@ -42,7 +50,7 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
         </main>
 
         {/* Bottom Navigation */}
-        <nav className="h-20 border-t border-border/50 bg-background/90 backdrop-blur-lg fixed bottom-0 w-full max-w-md z-50 px-6 pb-4 pt-2 flex items-center justify-between">
+        <nav className="h-20 border-t border-border/50 bg-background/90 backdrop-blur-lg fixed bottom-0 w-full max-w-md z-50 px-4 pb-4 pt-2 flex items-center justify-between">
           {navItems.map((item) => {
             const isActive = location === item.path;
             return (
@@ -55,9 +63,9 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
                     "p-1.5 rounded-xl transition-colors",
                     isActive && "bg-primary/10"
                   )}>
-                    <item.icon className={cn("w-6 h-6", isActive && "fill-current")} />
+                    <item.icon className={cn("w-5 h-5", isActive && "fill-current")} />
                   </div>
-                  <span className="text-[10px] font-black tracking-wider uppercase">{item.label}</span>
+                  <span className="text-[9px] font-black tracking-wider uppercase">{item.label}</span>
                 </div>
               </Link>
             );

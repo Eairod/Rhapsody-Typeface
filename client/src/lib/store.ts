@@ -27,6 +27,8 @@ export interface UserState {
   lastCheckIn: string | null;
   missions: Mission[];
   markets: PredictionMarket[];
+  pointsExpiring: number;
+  expiringDate: string;
   
   // Actions
   login: () => void;
@@ -89,6 +91,8 @@ export const useStore = create<UserState>((set) => ({
   lastCheckIn: null, 
   missions: INITIAL_MISSIONS,
   markets: INITIAL_MARKETS,
+  pointsExpiring: 150,
+  expiringDate: '30/06/2026',
 
   login: () => set({ isAuthenticated: true }),
 
