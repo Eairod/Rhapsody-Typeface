@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import bgImage from "@assets/generated_images/dark_futuristic_geometric_background_with_yellow_accents.png";
-import logoFull from "@assets/LOGOTIPO_1767226191405.png";
+import brandSymbol from "@assets/image_1767226457501.png";
 
 export default function Login() {
   const { login } = useStore();
@@ -21,15 +21,21 @@ export default function Login() {
         
         {/* Logo Area */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-           <img src={logoFull} alt="Rhapsody" className="h-16 w-auto mx-auto drop-shadow-[0_0_20px_rgba(255,182,0,0.3)]" />
-           <p className="text-primary font-black tracking-[0.3em] text-[10px] uppercase">
-             The Rewarding layer of the internet
-           </p>
+           <div className="relative">
+             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+             <img src={brandSymbol} alt="Rhapsody" className="h-32 w-32 mx-auto relative drop-shadow-[0_0_30px_rgba(255,182,0,0.4)]" />
+           </div>
+           <div className="space-y-2">
+             <h1 className="font-heading text-4xl font-black tracking-tighter text-white uppercase italic">RHAPSODY HUB</h1>
+             <p className="text-primary font-black tracking-[0.3em] text-[10px] uppercase">
+               The Rewarding layer of the internet
+             </p>
+           </div>
         </motion.div>
 
         {/* Action Area */}
