@@ -5,7 +5,7 @@ export interface Mission {
   title: string;
   partner: string;
   reward: number;
-  type: 'points' | 'xp';
+  type: 'pontos' | 'xp';
   status: 'pending' | 'completed' | 'claimed';
   description: string;
 }
@@ -38,17 +38,17 @@ export interface UserState {
 
 // Mock Data
 const INITIAL_MISSIONS: Mission[] = [
-  { id: '1', title: 'Listen to "Neon Nights"', partner: 'MusicPlayce', reward: 50, type: 'points', status: 'pending', description: 'Stream the new hit single on MusicPlayce.' },
-  { id: '2', title: 'Connect Wallet', partner: 'Rhapsody', reward: 100, type: 'xp', status: 'pending', description: 'Link your Web3 wallet to your profile.' },
-  { id: '3', title: 'Daily Poll', partner: 'Rhapsody', reward: 20, type: 'points', status: 'pending', description: 'Vote in the daily community poll.' },
-  { id: '4', title: 'Share your prediction', partner: 'Rhapsody', reward: 10, type: 'xp', status: 'pending', description: 'Share your prediction on X/Twitter.' },
+  { id: '1', title: 'Ouça "Neon Nights"', partner: 'MusicPlayce', reward: 50, type: 'pontos', status: 'pending', description: 'Ouça o novo hit no MusicPlayce.' },
+  { id: '2', title: 'Conectar Carteira', partner: 'Rhapsody', reward: 100, type: 'xp', status: 'pending', description: 'Vincule sua carteira Web3 ao seu perfil.' },
+  { id: '3', title: 'Enquete Diária', partner: 'Rhapsody', reward: 20, type: 'pontos', status: 'pending', description: 'Vote na enquete diária da comunidade.' },
+  { id: '4', title: 'Compartilhe sua previsão', partner: 'Rhapsody', reward: 10, type: 'xp', status: 'pending', description: 'Compartilhe sua previsão no X/Twitter.' },
 ];
 
 const INITIAL_MARKETS: PredictionMarket[] = [
   { 
     id: 'm1', 
-    title: 'Top Artist of the Week', 
-    category: 'Music', 
+    title: 'Top Artista da Semana', 
+    category: 'Música', 
     status: 'open', 
     pool: 15000,
     options: [
@@ -59,8 +59,8 @@ const INITIAL_MARKETS: PredictionMarket[] = [
   },
   { 
     id: 'm2', 
-    title: 'Best Picture Winner 2026', 
-    category: 'Entertainment', 
+    title: 'Vencedor de Melhor Filme 2026', 
+    category: 'Entretenimento', 
     status: 'open', 
     pool: 50000,
     options: [
@@ -70,13 +70,13 @@ const INITIAL_MARKETS: PredictionMarket[] = [
   },
   { 
     id: 'm3', 
-    title: 'Next Bitcoin ATH', 
+    title: 'Próxima ATH do Bitcoin', 
     category: 'Crypto', 
     status: 'open', 
     pool: 120000,
     options: [
-      { id: 'o1', label: 'Before Q3', odds: 2.2 },
-      { id: 'o2', label: 'After Q3', odds: 1.6 }
+      { id: 'o1', label: 'Antes do Q3', odds: 2.2 },
+      { id: 'o2', label: 'Depois do Q3', odds: 1.6 }
     ]
   }
 ];
@@ -112,7 +112,7 @@ export const useStore = create<UserState>((set) => ({
     if (!mission || mission.status !== 'completed') return state;
     
     return {
-      points: state.points + (mission.type === 'points' ? mission.reward : 0),
+      points: state.points + (mission.type === 'pontos' ? mission.reward : 0),
       xp: state.xp + (mission.type === 'xp' ? mission.reward : 0),
       missions: state.missions.map(m => 
         m.id === id ? { ...m, status: 'claimed' } : m

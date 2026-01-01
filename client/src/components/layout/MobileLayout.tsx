@@ -9,14 +9,14 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
   const { points, xp } = useStore();
 
   const navItems = [
-    { icon: Home, label: "Home", path: "/" },
-    { icon: Target, label: "Missions", path: "/missions" },
-    { icon: TrendingUp, label: "Predict", path: "/predictions" },
-    { icon: Users, label: "Partners", path: "/partners" },
+    { icon: Home, label: "Início", path: "/" },
+    { icon: Target, label: "Missões", path: "/missions" },
+    { icon: TrendingUp, label: "Previsões", path: "/predictions" },
+    { icon: Users, label: "Parceiros", path: "/partners" },
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex justify-center bg-neutral-900">
+    <div className="min-h-screen bg-background text-foreground flex justify-center bg-neutral-900 font-sans">
       <div className="w-full max-w-md bg-background min-h-screen flex flex-col relative shadow-2xl border-x border-border/50">
         
         {/* Header */}
